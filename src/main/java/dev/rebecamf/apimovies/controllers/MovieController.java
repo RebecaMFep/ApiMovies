@@ -1,4 +1,4 @@
-package dev.rebecamf.apimovies.controllers.controllers;
+package dev.rebecamf.apimovies.controllers;
 
 import java.util.List;
 
