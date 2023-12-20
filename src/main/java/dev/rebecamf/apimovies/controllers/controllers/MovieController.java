@@ -19,7 +19,6 @@ import dev.rebecamf.apimovies.services.MovieService;
 
 @RestController
 @RequestMapping (path = "${api-endpoint}/movies")
-
 public class MovieController {
 
     MovieService service;
@@ -32,28 +31,11 @@ public class MovieController {
     public List<Movie> index () {
 
     List<Movie> movies = service.getAll();
-
     return movies;
-    }
+    
 }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Movie> show(@PathVariable("id") Long id) throws Exception {
-
-        Movie movie = service.getById(id);
-
-        return ResponseEntity.status(HttpStatusCode.valueOf(200)).body(movie);
-    }
-
-    @PostMapping(path = "")
-    public ResponseEntity<Movie> create(@RequestBody Movie movie) {
-
-        Movie newMovie = service.save(movie);
-
-        return ResponseEntity.status(201).body(newMovie);
-    }
-
-@GetMapping(path = "/{id}")
     public ResponseEntity<Movie> show(@PathVariable("id") Long id) throws Exception {
 
         Movie movie = service.getById(id);
