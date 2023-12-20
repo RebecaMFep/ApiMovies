@@ -37,7 +37,7 @@ public class MovieService {
         Movie updatingMovie = repository.findById(id).orElseThrow(() -> new MovieNotFoundException("Movie not found"));
 
         updatingMovie.setTitle(movie.getTitle());
-        updatingMovie.setDescription(movie.getDiscription);
+        updatingMovie.setDescription(movie.getDescription());
         updatingMovie.setRunning_time(movie.getRunning_time());
         updatingMovie.setCreation_year(movie.getCreation_year());
 

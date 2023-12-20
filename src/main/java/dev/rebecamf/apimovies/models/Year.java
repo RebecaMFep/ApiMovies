@@ -14,7 +14,7 @@ import jakarta.persistence.GenerationType;
 @Table (name = "years")
 public class Year {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY) @Colum (name = "id_year") 
+    @GeneratedValue (strategy = GenerationType.IDENTITY) @Column (name = "id_year") 
     private Long id;
 
     private Long creation_year;
