@@ -18,7 +18,7 @@ public class Movie {
     
     private Long id;
     private String title;
-    private String discription;
+    private String description;
     private Long running_time;
 
     @ManyToOne
@@ -28,10 +28,10 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(String title, String discription, Long running_time) {
+    public Movie(String title, String description, Long running_time) {
         
         this.title = title;
-        this.discription = discription;
+        this.description = description;
         this.running_time = running_time;
     }
 
@@ -51,14 +51,6 @@ public class Movie {
         this.title = title;
     }
 
-    public String getDiscription() {
-        return discription;
-    }
-
-    public void setDiscription(String discription) {
-        this.discription = discription;
-    }
-
     public Long getRunning_time() {
         return running_time;
     }
@@ -73,6 +65,14 @@ public class Movie {
 
     public void setCreation_year(Year creation_year) {
         this.creation_year = creation_year;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
     
 }
