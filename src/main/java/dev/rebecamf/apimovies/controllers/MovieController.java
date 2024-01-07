@@ -2,7 +2,6 @@ package dev.rebecamf.apimovies.controllers;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,14 +13,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dev.rebecamf.apimovies.models.Movie;
+import dev.rebecamf.apimovies.IGenericService;
 import dev.rebecamf.apimovies.services.MovieService;
+import dev.rebecamf.apimovies.messages.Message;
+import dev.rebecamf.apimovies.models.Movie;
+
 
 @RestController
 @RequestMapping (path = "${api-endpoint}/movies")
 public class MovieController {
 
-    MovieService service;
+    IGenericService<Movie> service;
 
     public MovieController(MovieService service) {
         this.service = service;
@@ -60,11 +62,21 @@ public class MovieController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<HttpStatus> remove(@PathVariable("id") Long id) throws Exception { 
+    public ResponseEntity<Message> remove(@PathVariable("id") Long id) throws Exception { 
 
-        service.delete(id);
+        Message delete = service.delete(id);
 
-        return new ResponseEntity<>(HttpStatus.valueOf(204));
+        return  ResponseEntity.status(200).body(delete);
+    }
+
+
+    @GetMapping(path = "/bytitle/{title}")
+    public ResponseEntity<Movie> showByTitle(@PathVariable("title") String title) throws Exception {
+
+        Movie movie = service.getByTitle(title);
+
+        return ResponseEntity.status(HttpStatusCode.valueOf(200)).body(movie);
     }
 
 }
+
