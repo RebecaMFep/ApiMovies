@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dev.rebecamf.apimovies.IGenericService;
+import dev.rebecamf.apimovies.services.IGenericService;
 import dev.rebecamf.apimovies.services.MovieService;
 import dev.rebecamf.apimovies.messages.Message;
 import dev.rebecamf.apimovies.models.Movie;

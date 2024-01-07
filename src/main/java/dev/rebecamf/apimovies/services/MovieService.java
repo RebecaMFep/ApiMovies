@@ -1,11 +1,14 @@
 package dev.rebecamf.apimovies.services;
 
 import java.util.List;
+
+import dev.rebecamf.apimovies.repositories.MovieRepository;
+
 import org.springframework.stereotype.Service;
 
 import dev.rebecamf.apimovies.exception.MovieNotFoundException;
 import dev.rebecamf.apimovies.models.Movie;
-import dev.rebecamf.apimovies.repositories.MovieRepository;
+import dev.rebecamf.apimovies.messages.Message;;
 
 @Service
 public class MovieService implements IGenericService<Movie> {
